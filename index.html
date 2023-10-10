@@ -1,13 +1,25 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | iGEM</title>
-    <link rel="shortcut icon" href="TemplateData/favicon.ico">
-    <link rel="stylesheet" href="TemplateData/style.css">
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Ecoli Air Guard | UESTC-China</title>
+    <link rel="shortcut icon" href="TemplateData/favicon.ico" />
+    <link rel="stylesheet" href="TemplateData/style.css" />
   </head>
   <body>
+    <div style="text-align: right; position: absolute; z-index: 1; width: 100%">
+      <a href="https://2023.igem.wiki/uestc-china/"
+        ><img
+          style="width: 10rem"
+          src="https://static.igem.wiki/teams/4773/wiki/homepage-logo.gif"
+      /></a>
+
+      <a href="https://2023.igem.wiki/uestc-china/game" style="display: block"
+        >Click to learn more!</a
+      >
+    </div>
+
     <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas"></canvas>
       <div id="unity-loading-bar">
@@ -19,7 +31,12 @@
       <div id="unity-footer">
         <div id="unity-webgl-logo"></div>
         <div id="unity-fullscreen-button"></div>
-        <div id="unity-build-title">iGEM</div>
+        <div id="unity-build-title">UESTC-China</div>
+        <p>Team UESTC-China 2023 wiki:<a>https://2023.igem.wiki/uestc-china</a></p>
+        <p>
+          Soundtrack composed by AIVA (Artificial Intelligence Virtual Artist):
+          <a>https://www.aiva.ai</a>
+        </p>
       </div>
     </div>
     <script>
@@ -55,14 +72,16 @@
       script.onload = () => {
         createUnityInstance(canvas, config, (progress) => {
           progressBarFull.style.width = 100 * progress + "%";
-        }).then((unityInstance) => {
-          loadingBar.style.display = "none";
-          fullscreenButton.onclick = () => {
-            unityInstance.SetFullscreen(1);
-          };
-        }).catch((message) => {
-          alert(message);
-        });
+        })
+          .then((unityInstance) => {
+            loadingBar.style.display = "none";
+            fullscreenButton.onclick = () => {
+              unityInstance.SetFullscreen(1);
+            };
+          })
+          .catch((message) => {
+            alert(message);
+          });
       };
       document.body.appendChild(script);
     </script>
